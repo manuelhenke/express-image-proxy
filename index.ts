@@ -1,17 +1,18 @@
 import 'dotenv/config';
 import express, { Express, Request, Response } from 'express';
+import { ReasonPhrases, StatusCodes } from 'http-status-codes';
 import request, { get } from 'request';
 
 const app: Express = express();
 const port = process.env.PORT ?? 0;
 
 app.get('/health-check', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server');
+  res.status(StatusCodes.OK).send(ReasonPhrases.OK);
 });
 
 app.get('/', (req, res) => {
   if (!req?.query?.url) {
-    res.end();
+    res.status(StatusCodes.BAD_REQUEST).end();
     return;
   }
 
@@ -24,7 +25,7 @@ app.get('/', (req, res) => {
       .pipe(res);
   } catch (error) {
     console.error(error);
-    res.end();
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).end();
   }
 });
 
