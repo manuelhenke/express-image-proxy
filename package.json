@@ -1,7 +1,7 @@
 {
   "name": "express-image-proxy",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple express application for proxy images to adjust head fields for example. ",
   "private": true,
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/index.js\"",
     "lint": "eslint --ext \".ts\" --ignore-path .gitignore .",
     "lintfix": "yarn lint --fix",
+    "prepare": "husky install",
     "test": "echo \"Error: no test specified\""
   },
   "repository": {
@@ -36,6 +37,7 @@
     "@commitlint/config-conventional": "^17.0.3",
     "@types/express": "^4.17.13",
     "@types/node": "^18.7.6",
+    "@types/request": "^2.48.8",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
     "concurrently": "^7.3.0",
