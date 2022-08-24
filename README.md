@@ -4,4 +4,4 @@
 
 # express-image-proxy
 
-Simple express application for proxy images to adjust head fields for example.
+Simple express application to proxy images, e.g. to adjust header fields.
